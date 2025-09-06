@@ -1,93 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akidul Haque | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akidul Haque | Ph.D. Candidate</title>
   <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #121a2b;
+      --text: #d8e1ff;
+      --muted: #9fb0d8;
+      --accent: #6aa3ff;
+      --card: #0f172a;
+      --border: #23324f;
+      --link: #9cc1ff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: system-ui, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      color: #333;
     }
-    header {
-      background: #004080;
-      color: white;
-      padding: 1.5rem;
+
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Header */
+    header.hero {
+      background: radial-gradient(1200px 400px at 50% -10%, #0f1a33 0%, var(--bg) 60%);
+      padding: 3.5rem 0 1rem;
       text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
     }
-    nav a {
-      color: white;
-      margin: 0 10px;
+    .name { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: 0.5px; }
+    .subtitle { color: var(--muted); margin-top: .25rem; font-size: 0.98rem; }
+    .subtitle span { display: block; }
+
+    /* Nav */
+    nav.navbar {
+      margin-top: 1rem;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: inline-flex;
+      gap: .5rem;
+      padding: .35rem;
+    }
+    nav.navbar a {
+      color: var(--link);
       text-decoration: none;
-      font-weight: bold;
+      padding: .5rem .9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav.navbar a:hover, nav.navbar a:focus { background: #0c1b36; }
+
+    /* Sections */
+    section { padding: 3rem 0; }
+    section .section-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+      font-weight: 800;
+      margin: 0 0 1.2rem 0;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: .5rem;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+
+    /* About two-column */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2rem;
+      align-items: start;
     }
-    h2 {
-      border-bottom: 2px solid #004080;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+    .portrait {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: .5rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    footer {
-      background: #eee;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 2rem;
+    .portrait img { width: 100%; display: block; border-radius: 12px; }
+
+    .lead {
+      font-size: 1.02rem;
+      color: #e4ebff;
+    }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+    }
+    .card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+    .card .meta { color: var(--muted); font-size: .9rem; margin-bottom: .5rem; }
+    .pill {
+      display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: .2rem .6rem; font-size: .82rem; color: var(--muted); margin-right: .35rem; margin-top: .35rem;
+    }
+
+    /* Buttons/links */
+    .btn {
+      display: inline-block; background: #0d234a; color: #cfe0ff; text-decoration: none; padding: .6rem .9rem; border-radius: 10px; border: 1px solid var(--border); font-weight: 700;
+    }
+    .btn:hover { background: #0f2a58; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .portrait { max-width: 360px; margin: 0 auto; }
+    }
+    @media (min-width: 720px) {
+      .card.span-6 { grid-column: span 6; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Akidul Haque</h1>
-    <p>PhD Candidate | Applied & Industrial Mathematics</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Sticky header with name and nav -->
+  <header class="hero">
+    <div class="container">
+      <div class="name">Akidul Haque</div>
+      <div class="subtitle">
+        <span>Ph.D. Candidate, Applied & Industrial Mathematics</span>
+        <span>University of Louisville, USA</span>
+      </div>
+      <nav class="navbar" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- About -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a PhD candidate in Applied & Industrial Mathematics at the University of Louisville. 
-      My research focuses on mathematical modeling, Bayesian statistics, and epidemiology, 
-      particularly in the areas of wastewater-based epidemiology, arbovirus co-infection frameworks, 
-      and ecological systems.
-    </p>
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="portrait">
+          <!-- Replace portrait.jpg with your own file name placed at repo root -->
+          <img src="portrait.jpg" alt="Portrait of Akidul Haque" />
+        </div>
+        <div>
+          <p class="lead">
+            I build mathematical and statistical models for public health and ecology, with a current focus on wastewater‑based epidemiology, dynamic lag models for under‑reporting, and multi‑strain arbovirus (Dengue/Chikungunya) co‑infection dynamics.
+          </p>
+          <p>
+            My work blends Bayesian inference, time‑series forecasting, and mechanistic ODE/PDE systems. I enjoy translating data and theory into deployable tools and clear insights.
+          </p>
+          <p>
+            Keywords:
+            <span class="pill">Wastewater epidemiology</span>
+            <span class="pill">Bayesian modeling</span>
+            <span class="pill">Time series</span>
+            <span class="pill">Epidemiology</span>
+            <span class="pill">Dynamical systems</span>
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="research">
-    <h2>Research</h2>
-    <ul>
-      <li>Dynamic lag models for COVID-19 under-reporting using wastewater data</li>
-      <li>Mathematical models of Dengue–Chikungunya co-infection</li>
-      <li>Predator–prey systems with stochastic dynamics</li>
-      <li>Covalent Organic Frameworks (COFs) for advanced battery separators</li>
-    </ul>
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="cards">
+        <article class="card span-6">
+          <h3>Ph.D. in Applied & Industrial Mathematics</h3>
+          <div class="meta">University of Louisville — 2023–present</div>
+          <p>Research: wastewater‑based epidemiology, dynamic lag models, co‑infection systems, stochastic processes.</p>
+        </article>
+        <article class="card span-6">
+          <h3>M.S. in Biostatistics (dual degree)</h3>
+          <div class="meta">Starting Fall 2025</div>
+          <p>Focus: Bayesian methods, study design, and infectious disease modeling.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="cards">
+        <article class="card span-6">
+          <h3>Nowcasting COVID‑19 from Wastewater</h3>
+          <div class="meta">Dynamic lag model • R / Stan</div>
+          <p>Spatiotemporal model relating viral concentration to reported cases with under‑reporting adjustment and incubation/reporting delays.</p>
+          <p><a class="btn" href="#" target="_blank" rel="noopener">Code / Paper</a></p>
+        </article>
+        <article class="card span-6">
+          <h3>Dengue–Chikungunya Co‑infection Model</h3>
+          <div class="meta">Mechanistic ODE • MATLAB / R</div>
+          <p>Vector–host system with coinfection compartments; sensitivity of \(R_0\) to transmission and recovery parameters; visualization toolkit.</p>
+          <p><a class="btn" href="#" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+        <article class="card span-6">
+          <h3>Predator–Prey with Holling Responses</h3>
+          <div class="meta">Nonlinear dynamics • MATLAB</div>
+          <p>Holling II / ratio‑dependent responses with harvesting; bifurcation maps and stability regions for policy scenarios.</p>
+        </article>
+        <article class="card span-6">
+          <h3>COF‑based Separators (Review)</h3>
+          <div class="meta">Materials review • Writing</div>
+          <p>Comparative analysis of polymer/COF separators for next‑gen batteries; focuses on transport, scalability, and real‑world implications.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <h2 class="section-title">CV</h2>
+      <p>
+        Download my latest CV: <a class="btn" href="Akidul_Haque_CV.pdf" target="_blank" rel="noopener">View CV (PDF)</a>
+      </p>
+      <p class="meta">Place <code>Akidul_Haque_CV.pdf</code> in the repository root.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      📧 Email: <a href="mailto:akidul.haque@louisville.edu">akidul.haque@louisville.edu</a><br>
-      💼 GitHub: <a href="https://github.com/AkidulHaque" target="_blank">github.com/AkidulHaque</a>
-    </p>
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        📧 Email: <a href="mailto:akidul.haque@louisville.edu">akidul.haque@louisville.edu</a><br/>
+        💼 GitHub: <a href="https://github.com/AkidulHaque" target="_blank" rel="noopener">github.com/AkidulHaque</a>
+      </p>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Akidul Haque | Built with GitHub Pages</p>
+    <div class="container">
+      © <span id="year"></span> Akidul Haque — Built with GitHub Pages
+    </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-Update index.html with portfolio content
