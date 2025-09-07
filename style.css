@@ -1,8 +1,13 @@
 /* style.css */
-:root{
-  --maroon:#7a1a1a; --maroon-dark:#5f1414;
-  --text:#222; --muted:#666; --bg:#f6f7fb; --card:#fff; --border:#e6e7ee;
-  --link:#7a1a1a;
+:root {
+  --bg: #AD0000;      /* Cardinal Red */
+  --bg-soft: #8B0000; /* darker shade */
+  --card: #730000;    
+  --border: #5A0000;  
+  --text: #ffffff;
+  --muted: #ffcc99;
+  --accent: #ffcc00;
+  --link: #ffcc00;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}
