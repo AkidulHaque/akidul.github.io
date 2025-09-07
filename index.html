@@ -1,378 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akidul Haque | Ph.D. Candidate</title>
-  <style>
-    :root {
-  --bg: #AD0000;      /* Cardinal Red */
-  --bg-soft: #8B0000; /* darker shade */
-  --card: #730000;    
-  --border: #5A0000;  
-  --text: #ffffff;
-  --muted: #ffcc99;
-  --accent: #ffcc00;
-  --link: #ffcc00;
-}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akidul Haque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#7a1a1a;         /* top bar like the example */
+    --maroon-dark:#5f1414;
+    --accent:#7a1a1a;
+    --text:#222;
+    --muted:#666;
+    --bg:#f6f7fb;             /* light page background */
+    --card:#ffffff;           /* white cards */
+    --border:#e6e7ee;
+    --link:#7a1a1a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--text); background:var(--bg); line-height:1.65;
+  }
+  /* Top bar */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:var(--maroon); color:#fff; border-bottom:3px solid var(--maroon-dark);
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{font-weight:800; letter-spacing:.2px}
+  nav a{color:#fff; text-decoration:none; margin-left:18px; font-weight:600}
+  nav a:hover{opacity:.9; text-decoration:underline}
 
+  /* Page spacing */
+  main{padding:28px 0 60px}
+  section{margin:28px 0 48px}
 
+  /* About two-column like screenshot */
+  .about{display:grid; grid-template-columns:300px 1fr; gap:36px; align-items:start}
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.04);
+  }
+  .profile{padding:18px; text-align:center}
+  .avatar{width:180px; height:180px; border-radius:50%; object-fit:cover; display:block; margin:12px auto 10px; border:4px solid var(--border)}
+  .name{font-size:1.35rem; font-weight:800; margin:6px 0}
+  .sub{color:var(--muted); font-size:.95rem}
+  .meta-list{list-style:none; padding:0; margin:14px 0 0}
+  .meta-list li{margin:6px 0}
+  .meta-list a{color:var(--link); text-decoration:none}
+  .meta-list a:hover{text-decoration:underline}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background-color: #0c1b36;   /* UofL background */
-  color: #ffffff;              /* switch text to white for contrast */
-  line-height: 1.6;
-}
+  .about-text.card{padding:22px 26px}
+  h1{font-size:2rem; margin:0 0 6px}
+  h2{font-size:1.35rem; margin:0 0 12px; color:var(--maroon)}
+  p{margin:.6rem 0}
+  .pill{display:inline-block; border:1px solid var(--border); padding:.15rem .5rem; border-radius:999px; font-size:.85rem; color:var(--muted); margin:.25rem .35rem .25rem 0}
 
+  /* Section titles */
+  .sect-title{font-size:1.5rem; font-weight:800; border-bottom:1px solid var(--border); padding-bottom:.4rem; margin:0 0 14px}
 
-    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  /* Publications under Research */
+  .subsection h3{font-size:1.1rem; color:var(--maroon); margin:20px 0 8px}
+  .pubs{padding-left:18px}
+  .pubs li{margin:10px 0}
+  .desc{color:var(--muted); margin:.25rem 0 0}
 
-    /* Header */
-    header.hero {
-      background: radial-gradient(1200px 400px at 50% -10%, #0f1a33 0%, var(--bg) 60%);
-      padding: 3.5rem 0 1rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(6px);
-    }
-    .name { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: 0.5px; }
-    .subtitle { color: var(--muted); margin-top: .25rem; font-size: 0.98rem; }
-    .subtitle span { display: block; }
+  /* Footer */
+  footer{border-top:1px solid var(--border); color:var(--muted); padding:26px 0; text-align:center}
 
-    /* Nav */
-    nav.navbar {
-      margin-top: 1rem;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      display: inline-flex;
-      gap: .5rem;
-      padding: .35rem;
-    }
-    nav.navbar a {
-      color: var(--link);
-      text-decoration: none;
-      padding: .5rem .9rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: .95rem;
-    }
-    nav.navbar a:hover, nav.navbar a:focus { background: #0c1b36; }
-
-    /* Sections */
-    section { padding: 3rem 0; }
-    section .section-title {
-      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-      font-weight: 800;
-      margin: 0 0 1.2rem 0;
-      border-bottom: 1px dashed var(--border);
-      padding-bottom: .5rem;
-    }
-
-    /* About two-column */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-    .portrait {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: .5rem;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    .portrait img { width: 100%; display: block; border-radius: 12px; }
-
-    .lead {
-      font-size: 1.02rem;
-      color: #e4ebff;
-    }
-
-    /* Cards */
-    .cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
-    .card {
-      grid-column: span 12;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.1rem 1.2rem;
-    }
-    .card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
-    .card .meta { color: var(--muted); font-size: .9rem; margin-bottom: .5rem; }
-    .pill {
-      display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: .2rem .6rem; font-size: .82rem; color: var(--muted); margin-right: .35rem; margin-top: .35rem;
-    }
-
-    /* Buttons/links */
-    .btn {
-      display: inline-block; background: #0d234a; color: #cfe0ff; text-decoration: none; padding: .6rem .9rem; border-radius: 10px; border: 1px solid var(--border); font-weight: 700;
-    }
-    .btn:hover { background: #0f2a58; }
-
-    /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); }
-
-    /* Responsive */
-    @media (max-width: 880px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .portrait { max-width: 360px; margin: 0 auto; }
-    }
-    @media (min-width: 720px) {
-      .card.span-6 { grid-column: span 6; }
-    }
-  </style>
+  /* Responsive */
+  @media (max-width:900px){ .about{grid-template-columns:1fr} .avatar{width:150px;height:150px} }
+</style>
 </head>
 <body>
-  <!-- Sticky header with name and nav -->
-  <header class="hero">
-    <div class="container">
-      <div class="name">Akidul Haque</div>
-      <div class="subtitle">
-        <span>Ph.D. Candidate, Applied & Industrial Mathematics</span>
-        <span>University of Louisville, Kentucky, USA.</span>
-      </div>
-      <nav class="navbar" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- About -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">Akidul Haque</div>
+    <nav>
+      <a href="#about">Home</a>
+      <a href="#research">Research</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ABOUT -->
   <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div class="portrait">
-          <!-- Replace portrait.jpg with your own file name placed at repo root -->
-          <img src="portrait.JPG" alt="Portrait of Akidul Haque" />
-        </div>
-        <div>
-          <p class="lead">
-            I am currently pursuing a Ph.D. in Applied Mathematics and an M.S. in Biostatistics as part of a dual-degree program at the <a href="https://louisville.edu" target="_blank" rel="noopener">University of Louisville</a>. My research focuses on developing and applying advanced mathematical and statistical models to investigate complex systems, with particular emphasis on ecosystems and epidemic dynamics. By integrating theoretical analysis, statistical methodology, and computational simulations, my work seeks to uncover underlying mechanisms, quantify uncertainty, and bridge the gap between abstract theory and real-world applications.
-          </p>
-          <p>
-          I am currently working under the supervision of <a href="https://sites.google.com/view/danhan/" target="_blank" rel="noopener">Dr. Dan Han</a>  on several projects in epidemic modeling, with a particular focus on under-reported cases. These projects include the development and application of models such as the Dynamic ARCH model and the Dynamic Lag model.
-            </p>
-          <p>
-          I am passionate about interdisciplinary collaboration, discussion, and continuous learning. Feel free to explore and don't hesitate to reach me.
-          </p>
-          <p>
-            Keywords:
-            <span class="pill">Data Driven Process</span>
-            <span class="pill">Bayesian modeling</span>
-            <span class="pill">Time series analysis</span>
-            <span class="pill">Epidemiology</span>
-            <span class="pill">Dynamical systems</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div class="about">
+      <!-- Left card (photo + quick info) -->
+      <aside class="profile card">
+        <img class="avatar" src="portrait.jpg" alt="Akidul Haque"> <!-- or portrait.JPG -->
+        <div class="name">Akidul Haque</div>
+        <div class="sub">Ph.D. Candidate, Applied & Industrial Mathematics<br>University of Louisville</div>
+        <ul class="meta-list">
+          <li>Email: <a href="mailto:akidul.haque@louisville.edu">akidul.haque@louisville.edu</a></li>
+          <li><a href="Akidul_Haque_CV.pdf" target="_blank">Download CV (PDF)</a></li>
+          <li><a href="https://github.com/AkidulHaque" target="_blank">GitHub</a></li>
+          <li><a href="https://scholar.google.com/citations?user=b5B8UGgAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        </ul>
+      </aside>
 
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="cards">
-        <article class="card span-6">
-          <h3>Ph.D. in Applied & Industrial Mathematics</h3>
-  <div class="meta"><a href="https://louisville.edu" target="_blank" rel="noopener">University of Louisville</a>, Fall 2023–ongoing</div>
-  <p><strong>Supervisor:</strong> <a href="https://sites.google.com/view/danhan/" target="_blank" rel="noopener">Dr. Dan Han</a> </p>
-  <p><strong>Selected Doctoral Coursework:</strong></p>
-  <ul>
-    <li>MATH-601,602: Real Analysis</li>
-    <li>MATH-635,636: Mathematical Modeling</li>
-    <li>MATH-667,668: Statistical Inference and Linear Statistical Modeling</li>
-    <li>MATH-681,682: Combinatorics and Graph Theory</li>
-    <li>Bayesian Statistics</li>
-  </ul>
-        </article>
-        <article class="card span-6">
-          <h3>M.S. in Biostatistics (dual degree)</h3>
-          <div class="meta"><a href="https://louisville.edu" target="_blank" rel="noopener">University of Louisville</a>, Fall 2025-ongoing</div>
-          <p><strong>Selected Doctoral Coursework:</strong></p>
-  <ul>
-    <li>PHST-620: Intro to Stat computing</li>
-    <li>PHST-624: Clinical Trials</li>
-  </ul>
-        </article>
-        <article class="card span-6">
-          <h3>M.S. in Mathematics</h3>
-          <div class="meta"> <a href="https://www.du.ac.bd" target="_blank" rel="noopener">University of Dhaka</a>,Bangladesh,2021-2022.</div>
-          <p>Dissertation Title: Harvesting Strategies and Environmental Fluctuations on
- Holling-types Predator-prey Models.</p>
-          <p><strong>Supervisor:</strong> <a href="https://www.du.ac.bd/faculty/faculty_details/MAT/146" target="_blank" rel="noopener">Dr. Md. Shahidul Islam</a>  </p>
-        </article>
-        <article class="card span-6">
-          <h3>B.S. in Mathematics</h3>
-          <div class="meta"> <a href="https://www.du.ac.bd" target="_blank" rel="noopener">University of Dhaka</a>,Bangladesh,2016-2020.</div>
-        </article>
-      </div>
-    </div>
-  </section>
- <!-- Research -->
-<section id="research">
-  <h2>Research</h2>
-
-  <!-- Subsection: Publications -->
-  <div class="subsection">
-    <h3>Publications</h3>
-    <ul>
-    <li>
-      Pritam Saha, Akidul Haque, Md. Shahidul Islam, and Uttam Ghosh, 
-      <em>"Dynamic complexities of a modified Leslie–Gower model in deterministic and stochastic environments."</em> 
-      <br>
-      <span class="meta">Modeling Earth Systems and Environment, January 2025.</span>
-      <br>
-      DOI: <a href="https://doi.org/10.1007/s40808-024-02179-w" target="_blank">10.1007/s40808-024-02179-w</a>
-      <br>
-      📄 <a href="Dynamic_complexities_of_a_modified_Leslie.pdf" target="_blank">View PDF</a>
-      <p class="desc">
-        In this paper, we explore the Leslie–Gower type prey–predator model with a Holling-IV functional response, 
-        examining both deterministic and stochastic environments. 
-        Our analysis highlights the emergence of complex bifurcation patterns and 
-        stochastic extinction probabilities under varying environmental fluctuations.
-      </p>
-    </li>
-
-    <li>
-      Akidul Haque, Pritam Saha, Shubhadeep Ghosh, Shahidul Islam, and Uttam Ghosh, 
-      <em>"Effects of environmental fluctuation and Allee effect on predator of a Brazaikin-type population model."</em> 
-      (Submitted).
-      <p class="desc">
-        This study presents a modified predator-prey model incorporating key ecological factors: logistic
-        growth of the prey population, Holling type II functional response for predation, and an Allee effect
-        in the predator population and competition among the predators. This research contributes to ecological
-        modeling by integrating deterministic and stochastic perspectives, providing insights for biodiversity
-        conservation and ecosystem management.
-      </p>
-    </li>
-
-    <li>
-      MD Rakibul Hasan, Parker Frank, Saifur Rahman, Andrew Harrison, Sankar Chowdhury, and Akidul Haque, 
-      <em>"Behavioural Interventions, Mental Health, and Microbial Dysbiosis as Intersecting Determinants of HIV PrEP Adherence: A Mixed-Methods Study Among African American Adults in the Southern United States."</em> 
-      (Submitted).
-      <p class="desc">
-        This study integrates behavioural, psychological, and microbiome perspectives to investigate HIV PrEP adherence 
-        among African American adults in the U.S. South. Using mixed-methods analysis, the work highlights how 
-        psychosocial stressors and microbial dysbiosis jointly impact adherence outcomes and intervention design.
-      </p>
-    </li>
-
-    <li>
-      Akidul Haque, Esrat Nur, Md. Anuar Hossen, and Shahidul Islam, 
-      <em>"Dynamical Behavior Analysis of Anti-controlled Lorenz System."</em> 
-      (Submitted).
-      <p class="desc">
-        This work investigates the anti-controlled Lorenz system (Chen system), focusing on the role of control parameters in inducing 
-        or suppressing chaotic dynamics. Analytical and numerical methods are applied to reveal stability boundaries, 
-        bifurcation structures, and potential engineering applications of controlled chaos.
-      </p>
-    </li>
-  </ul>
-    <div class="subsection">
-    <h3>In Preparation</h3>
-   <ul>
-    <li>
-      Dan Han, Akidul Haque, 
-      <em> "Spatiotemporal Dynamic Lag Mod-
-els for Nowcasting COVID-19 Rates Using Waste Water Data."</em>
-      <p class="desc">
-       We are working on a Spatiotemporal Dynamic Lag
-models to newcast Covid-19 rates using wastewater data of different counties across New York state.
-This study incorporates a geographically weighted process to consider the heterogeneity of disease
-transmission and under-reporting in relation to wastewater virus concentration, the temporal lags
-to address virus incubation periods and reporting delays, and the spatial correlations across counties
-to enhance the prediction accuracy and early warning system.
+      <!-- Right card (about text) -->
+      <article class="about-text card">
+        <h1>About</h1>
+        <p>
+          I study mathematical modeling and Bayesian methods for public-health and ecological systems —
+          wastewater-based epidemiology, dynamic lag models for under-reported cases, and DENV–CHIKV co-infection dynamics.
         </p>
-    </li>
-  </ul>
-      </div>
-</section>
+        <p>
+          I work with <a href="https://sites.google.com/view/danhan/" target="_blank">Dr. Dan Han</a>. 
+          My tools include R/Stan, MATLAB, and Python; I like turning theory + data into usable forecasts.
+        </p>
+        <p>
+          <span class="pill">Wastewater epidemiology</span>
+          <span class="pill">Bayesian modeling</span>
+          <span class="pill">Time series</span>
+          <span class="pill">Dynamical systems</span>
+        </p>
+      </article>
+    </div>
+  </section>
 
+  <!-- RESEARCH with two subsections like you asked -->
+  <section id="research">
+    <h2 class="sect-title">Research</h2>
 
-        
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="cards">
-        <article class="card span-6">
-          <h3>Nowcasting COVID‑19 from Wastewater</h3>
-          <div class="meta">Dynamic lag model • R / Stan</div>
-          <p>Spatiotemporal model relating viral concentration to reported cases with under‑reporting adjustment and incubation/reporting delays.</p>
-          <p><a class="btn" href="#" target="_blank" rel="noopener">Code / Paper</a></p>
-        </article>
-        <article class="card span-6">
-          <h3>Dengue–Chikungunya Co‑infection Model</h3>
-          <div class="meta">Mechanistic ODE • MATLAB / R</div>
-          <p>Vector–host system with coinfection compartments; sensitivity of \(R_0\) to transmission and recovery parameters; visualization toolkit.</p>
-          <p><a class="btn" href="#" target="_blank" rel="noopener">Preprint</a></p>
-        </article>
-        <article class="card span-6">
-          <h3>Predator–Prey with Holling Responses</h3>
-          <div class="meta">Nonlinear dynamics • MATLAB</div>
-          <p>Holling II / ratio‑dependent responses with harvesting; bifurcation maps and stability regions for policy scenarios.</p>
-        </article>
-        <article class="card span-6">
-          <h3>COF‑based Separators (Review)</h3>
-          <div class="meta">Materials review • Writing</div>
-          <p>Comparative analysis of polymer/COF separators for next‑gen batteries; focuses on transport, scalability, and real‑world implications.</p>
-        </article>
-      </div>
+    <div class="subsection">
+      <h3>Publications</h3>
+      <ul class="pubs">
+        <li>
+          Pritam Saha, Akidul Haque, Md. Shahidul Islam, and Uttam Ghosh,
+          <em>Dynamic complexities of a modified Leslie–Gower model in deterministic and stochastic environments.</em>
+          <br><span class="desc">Modeling Earth Systems and Environment, Jan 2025. 
+            DOI: <a href="https://doi.org/10.1007/s40808-024-02179-w" target="_blank">10.1007/s40808-024-02179-w</a> ·
+            <a href="Dynamic_complexities_of_a_modified_Leslie.pdf" target="_blank">PDF</a></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>In Preparation</h3>
+      <ul class="pubs">
+        <li>
+          Akidul Haque, Esrat Nur, Md. Anuar Hossen, and Shahidul Islam,
+          <em>Dynamical Behavior Analysis of Anti-controlled Lorenz System.</em>
+          <div class="desc">Analysis of chaos control, stability boundaries, and bifurcations (submitted).</div>
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- CV -->
   <section id="cv">
-    <div class="container">
-      <h2 class="section-title">CV</h2>
-      <p>
-        Download my latest CV: <a class="btn" href="Akidul_Haque_CV.pdf" target="_blank" rel="noopener">View CV (PDF)</a>
-      </p>
-      <p class="meta">Place <code>Akidul_Haque_CV.pdf</code> in the repository root.</p>
-    </div>
+    <h2 class="sect-title">CV</h2>
+    <p><a href="Akidul_Haque_CV.pdf" target="_blank">Open my CV (PDF)</a></p>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p>
-📧 Email: <a href="mailto:akidul.haque@louisville.edu">akidul.haque@louisville.edu</a><br/>
-📧 Email: <a href="mailto:akidulhaque12@gmail.com">akidulhaque12@gmail.com</a><br/>
-💼 GitHub: <a href="https://github.com/AkidulHaque" target="_blank" rel="noopener">github.com/AkidulHaque</a><br/>
-🔗 LinkedIn: <a href="https://www.linkedin.com/in/akidul-haque-aab952272/" target="_blank" rel="noopener">linkedin.com/in/akidul-haque-aab952272</a><br/>
-📖 ResearchGate: <a href="https://www.researchgate.net/profile/Akidul-Haque" target="_blank" rel="noopener">researchgate.net/profile/Akidul-Haque</a><br/>
-📚 Google Scholar: <a href="https://scholar.google.com/citations?user=b5B8UGgAAAAJ&hl=en" target="_blank" rel="noopener">scholar.google.com/citations?user=b5B8UGgAAAAJ</a>
-      </p>
-    </div>
+    <h2 class="sect-title">Contact</h2>
+    <p>Email: <a href="mailto:akidul.haque@louisville.edu">akidul.haque@louisville.edu</a></p>
   </section>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Akidul Haque — Built with GitHub Pages
-    </div>
-  </footer>
+</main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> Akidul Haque
+</footer>
+
 </body>
 </html>
-Update index.html with portfolio content
