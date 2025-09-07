@@ -1,17 +1,9 @@
 /* style.css */
-:root {
-  /* UofL Cardinal palette */
-  --bg: #AD0000;          /* page background (Cardinal Red) */
-  --bg-soft: #8B0000;     /* darker red for bars/accents */
-  --card: #730000;        /* cards/blocks */
-  --border: #5A0000;      /* subtle borders */
-  --text: #ffffff;        /* main text on red */
-  --muted: #ffcc99;       /* secondary text */
-  --accent: #ffcc00;      /* gold accents */
-  --link: #ffcc00;        /* link color */
-
-  /* explicit brand aliases for header */
-  --brand: var(--bg-soft);
+/* style.css */
+:root{
+  --maroon:#7a1a1a; --maroon-dark:#5f1414;
+  --text:#222; --muted:#666; --bg:#f6f7fb; --card:#fff; --border:#e6e7ee;
+  --link:#7a1a1a;  --brand: var(--bg-soft);
   --brand-dark: #6b0000;
 }
 
