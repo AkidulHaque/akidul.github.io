@@ -12,12 +12,7 @@
   gap: 1.5rem;      /* same as projects */
   margin-top: 1rem; /* same as projects */
 }
-.folder-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  margin-bottom: 0.5rem;
-}
+
 
 .desc {
   color: var(--muted);
@@ -69,41 +64,36 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:26px 0;text
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2+ per row */
+  gap: 1rem;
   margin-top: 1rem;
 }
 
 .project-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.2rem;
-  text-align: left;
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;   /* center icon + text */
+  box-shadow: 0 5px 12px rgba(0,0,0,.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.15);
 }
 
-.folder-icon {
-  font-size: 2rem;
+.folder-icon img {
+  width: 50px;   /* smaller image size */
+  height: 50px;
+  object-fit: contain;
   margin-bottom: 0.5rem;
 }
 
 .project-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.1rem;
+  font-size: 0.95rem;  /* smaller text */
+  margin: 0;
   color: var(--accent);
 }
-
-.project-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
