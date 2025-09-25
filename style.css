@@ -62,38 +62,80 @@ h2.sect-title{font-size:1.5rem;font-weight:800;border-bottom:1px solid var(--bor
 footer{border-top:1px solid var(--border);color:var(--muted);padding:26px 0;text-align:center}
 @media (max-width:900px){.about{grid-template-columns:1fr}.avatar{width:150px;height:150px}}
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2+ per row */
-  gap: 1rem;
-  margin-top: 1rem;
+/* Projects: square folder tiles */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(260px,1fr)); /* 2 per row */
+  gap:1.25rem;
+  margin-top:1rem;
 }
 
-.project-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.8rem;
-  text-align: center;   /* center icon + text */
-  box-shadow: 0 5px 12px rgba(0,0,0,.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+a.project-card{ /* make the whole tile clickable if you wrap with <a> */
+  text-decoration:none;
+  color:inherit;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,.15);
+.project-card{
+  background:#fff;                 /* if you want your red theme, use var(--card) */
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:0.9rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 
-.folder-icon img {
-  width: 50px;   /* smaller image size */
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
+.project-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 26px rgba(0,0,0,.15);
 }
 
-.project-card h3 {
-  font-size: 0.95rem;  /* smaller text */
-  margin: 0;
-  color: var(--accent);
+/* Square “folder” area */
+.folder-figure{
+  width:100%;
+  aspect-ratio:1/1;                /* perfect square */
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Icon covers ~70% of the square */
+.folder-figure img{
+  width:70%;
+  height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+/* Title: two lines max */
+.project-title{
+  margin:.6rem 0 0;
+  font-size:1rem;
+  font-weight:800;
+  text-align:center;
+  line-height:1.25;
+  display:-webkit-box;
+  -webkit-line-clamp:2;            /* clamp to two lines */
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  min-height: calc(1.25em * 2);    /* reserve height for two lines */
+}
+
+/* Description (optional) */
+.project-desc{
+  margin:.35rem 0 0;
+  font-size:.9rem;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width:700px){
+  .projects-grid{ grid-template-columns:1fr; }
 }
