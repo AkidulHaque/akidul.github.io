@@ -6,12 +6,13 @@
   --link:#7a1a1a;  --brand: var(--bg-soft);
   --brand-dark: #6b0000;
 }
-.lead {
-  color: var(--muted);
-  margin: .25rem 0 0;
-  text-align: justify;   /* ensures equal line lengths */
-  text-justify: inter-word; /* makes spacing smoother */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;      /* same as projects */
+  margin-top: 1rem; /* same as projects */
 }
+
 .desc {
   color: var(--muted);
   margin: .25rem 0 0;
