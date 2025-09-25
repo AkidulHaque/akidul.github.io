@@ -12,6 +12,12 @@
   gap: 1.5rem;      /* same as projects */
   margin-top: 1rem; /* same as projects */
 }
+.folder-icon img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
 
 .desc {
   color: var(--muted);
