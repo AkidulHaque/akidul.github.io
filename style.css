@@ -6,6 +6,12 @@
   --link:#7a1a1a;  --brand: var(--bg-soft);
   --brand-dark: #6b0000;
 }
+.lead {
+  color: var(--muted);
+  margin: .25rem 0 0;
+  text-align: justify;   /* ensures equal line lengths */
+  text-justify: inter-word; /* makes spacing smoother */
+}
 .desc {
   color: var(--muted);
   margin: .25rem 0 0;
