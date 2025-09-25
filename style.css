@@ -19,6 +19,19 @@
   text-align: justify;   /* ensures equal line lengths */
   text-justify: inter-word; /* makes spacing smoother */
 }
+.pill {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .2rem .6rem;
+  font-size: .82rem;
+  margin-right: .35rem;
+  margin-top: .35rem;
+
+  color: #007bff;       /* blue text */
+  border-color: #007bff; /* blue border */
+  background: rgba(0, 123, 255, 0.1); /* light blue background */
+}
 
 
 *{box-sizing:border-box}
