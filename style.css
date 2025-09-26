@@ -13,6 +13,10 @@
   margin-top: 1rem; /* same as projects */
 }
 
+.hopf-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
 
 .desc {
   color: var(--muted);
