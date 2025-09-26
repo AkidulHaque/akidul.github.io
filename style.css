@@ -17,6 +17,19 @@
   text-align: justify;
   text-justify: inter-word;
 }
+pre {
+  background: #2d2d2d;  /* dark code block */
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+pre code {
+  white-space: pre;
+}
 
 .desc {
   color: var(--muted);
