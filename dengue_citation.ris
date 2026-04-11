@@ -1,0 +1,13 @@
+TY  - JOUR
+AU  - Haque, Akidul
+AU  - Islam, Rafiqul
+PY  - 2026
+DA  - 2026/04/04
+TI  - Mathematical modeling and analysis of the Dengue and Chikungunya co-infection
+JO  - Scientific Reports
+AB  - The Aedes aegypti mosquito is the primary vector for the transmission of Dengue and Chikungunya viruses. Initially identical signs and symptoms of these infections in all cases make disease diagnosis exceedingly challenging. This paper aims to develop a mathematical model, and explore it through stability, bifurcation analysis and Herd Immunity Threshold (HIT) to describe the dynamic transmission, their co-infection and control of these two diseases. First we analyze the biological feasibility of the proposed model and examine the existence and stability of the different equilibrium points in relation to the basic reproduction number, $$\mathcal {R}_0$$. The model exhibits Transcritical bifurcation at the disease-free equilibrium (DFE), which has been investigated using Sotomayor’s theorem. Furthermore, the stability of the co-infected endemic equilibrium is established through the Center manifold theorem. A normalized sensitivity analysis has been performed to identify the most influential parameters that most significantly reduce disease transmission dynamics. The proposed model is calibrated and validated with reported case data from the 2023 Brazil outbreak, and HIT is applied as a prospective control strategy. The model analysis suggests that, under the calibrated 2023 Brazil parameter setting, achieving an effective protection level of approximately $$35.32\%$$ through interventions such as treatment, vector control, or social awareness, may substantially reduce disease transmission intensity and overall disease burden.
+SN  - 2045-2322
+UR  - https://doi.org/10.1038/s41598-026-43325-x
+DO  - 10.1038/s41598-026-43325-x
+ID  - Haque2026
+ER  - 
